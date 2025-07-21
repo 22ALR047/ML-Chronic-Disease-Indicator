@@ -46,7 +46,7 @@ The solution compares various algorithms and deploys the most accurate one — *
 
 ## 🚀 Deployment Links
 
-- 🔗 **Frontend (Vercel):** https://chronic-disease-indicator.vercel.app/
+- https://ml-chronic-disease-indicator-e1z7.vercel.app/
 
 
 
