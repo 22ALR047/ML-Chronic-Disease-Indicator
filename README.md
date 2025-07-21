@@ -47,7 +47,6 @@ The solution compares various algorithms and deploys the most accurate one — *
 ## 🚀 Deployment Links
 
 - 🔗 **Frontend (Vercel):** https://chronic-disease-indicator.vercel.app/
-- 🔗 **Backend API (Render):** https://chronicdiseaseindicator.onrender.com
 
 
 
