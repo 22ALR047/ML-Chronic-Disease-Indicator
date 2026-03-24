@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Test</title>
+  <style>
+    body { font-family: Arial; padding: 20px; max-width: 600px; margin: auto; }
+    button { padding: 10px 20px; font-size: 16px; }
+    #output { margin-top: 20px; padding: 10px; border: 1px solid #ccc; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h2>API Test</h2>
+  <button onclick="testAPI()">Test Backend</button>
+  <div id="output">Click button to test...</div>
+
+  <script>
+    async function testAPI() {
+      const output = document.getElementById('output');
+      output.innerText = 'Testing...';
+      
+      const data = {
+        mean_radius: 14,
+        mean_texture: 20,
+        mean_perimeter: 90,
+        mean_area: 600,
+        mean_smoothness: 0.09
+      };
+
+      try {
+        output.innerText = 'Sending request to: http://127.0.0.1:10000/predict/breast\n\n';
+        
+        const response = await fetch("http://127.0.0.1:10000/predict/breast", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        output.innerText += 'Response Status: ' + response.status + '\n';
+        output.innerText += 'Response OK: ' + response.ok + '\n\n';
+
+        const result = await response.json();
+        output.innerText += 'Response JSON:\n' + JSON.stringify(result, null, 2);
+        
+      } catch (error) {
+        output.innerText = 'ERROR:\n' + error.message + '\n\nStack:\n' + error.stack;
+      }
+    }
+  </script>
+</body>
+</html>
